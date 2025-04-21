@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../styles/App.css';
 import Selection from './Selection';
 import ColourSelector from './ColourSelector';
+import { Selection2 } from "./Selection2";
 
 const colourConfig = [{
     key: 'blue',
@@ -31,7 +32,7 @@ const App = () => {
 
   return (
     <div id="master">
-      <h5 className="heading">{/* display title here */}</h5>
+      <h5 className="heading">{title}</h5>
 
       <div className="row">
         {colourConfig.map((config, index) => (
@@ -39,13 +40,14 @@ const App = () => {
         ))}
       </div>
 
-      <div className='row' id="children-wrapper">
+      <div className='row holder' id="children-wrapper">
         {
           ["selection1", "selection2", "selection3"].map(key => (
             <Selection key={key} applyColor={applyColor} />
           ))
         }
       </div>
+<Selection2/>
     </div >
   )
 }
